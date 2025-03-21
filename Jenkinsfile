@@ -10,7 +10,7 @@ pipeline{
         }
         stage("Setting up Docker Compose file..."){
             steps{
-                sh "docker-compose down"
+                 
                 sh "docker-compose build"
                 sh "docker-compose up -d"
             }
