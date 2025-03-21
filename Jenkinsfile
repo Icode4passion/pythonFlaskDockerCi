@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage("Clone reporsitory...."){
             steps{
-                git 'https://github.com/Icode4passion/pythonFlaskDockerCi.git'
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Icode4passion/pythonFlaskDockerCi.git']])
 
             }
         }
