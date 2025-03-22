@@ -10,11 +10,23 @@ pipeline{
 
             }
         }
+        stage{
+            steps("Cleaning the container ..."){
+                sh '''
+                    if ["$(docker ps -aq -f name=flaskDcokerJenkinsApp)"] then
+                        docker stop flaskDcokerJenkinsApp
+                        docker rm flaskDcokerJenkinsApp
+                    fi
+                '''
+
+            }
+        }
         stage("Setting up Docker Compose file..."){
             steps{
-                sh "/usr/local/bin/docker-compose --version"
-                sh "/usr/local/bin/docker-compose build"
-                sh "/usr/local/bin/docker-compose up -d"
+                sh 'docker system prune -f'
+                sh "docker-compose --version"
+                sh "/docker-compose build"
+                sh "docker-compose up -d"
             }
         }
         stage("testing ..."){
