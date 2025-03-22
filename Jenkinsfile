@@ -1,7 +1,8 @@
 pipeline{
     agent any
-    
-
+    environment {
+        COMPOSE_FILE = "docker-compose.yml"
+    }
     stages{
         stage("Clone reporsitory...."){
             steps{
