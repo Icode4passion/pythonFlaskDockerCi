@@ -6,7 +6,7 @@ services:
     build: ./flaskapp
     container_name: flaskDcokerJenkinsApp
     restart: always
-    port:
+    ports:
       - 5000:5000
   
 
@@ -14,7 +14,7 @@ services:
     build: ./nginx
     container_name: nGnix5000
     restart: always
-    port:
+    ports:
       - 80:80
     depends_on:
       - flask
