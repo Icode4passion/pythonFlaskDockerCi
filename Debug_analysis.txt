@@ -1,8 +1,14 @@
+Set Up Jenkins in Ec2 
+
+https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
+
 First Build failed 
+---------------------------
 
 Error performing git command: git init /var/lib/jenkins/caches/git-06740e
 
 Correction 
+---------------------------
 Step 1:
 	Jenkins DashBoard --> manage jenkins --> Tools --> set the git path to "/usr/bin/git"
 Step 2:
@@ -13,26 +19,41 @@ Step 2:
  
 	
 Second Build , Third And Fourth Build failed 
+---------------------------
 	Additional property port is not allowed
 	failed because of the docker-compose.yml had port instead of ports corrected it
 	docker-compose.yml: services.flask Additional property port is not allowed
 Correction :
+---------------------------
 	Chnaged port to ports in docker-compose.yml in under nginx and flask app
 
+
 Fifth Build failed 
+---------------------------
 	docker-compose.yml: version must be a string
 Correction:
+---------------------------
 	Changed the version from 3.8 to "3.8"
 
+
+
 Sixth Build failed :
+---------------------------
 	The container name "/flaskDcokerJenkinsApp" is already in use by container 
 Correction 
+---------------------------
 	Changed the code to this in Jenkins file 
 	if file is present , stop it and remove it 
 
+
+
 7th Build Success :
+---------------------------
 	Not chnaged anything in docker-compose file
 
+
+Nots:
+---------------------------
 Set up docker and git in the Ec2 and also set up the 
 
 	
