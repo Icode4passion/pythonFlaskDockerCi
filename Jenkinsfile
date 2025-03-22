@@ -13,11 +13,11 @@ pipeline{
         stage("Cleaning the container ..."){
             steps{
                 sh '''
-                    if ["$(docker ps -aq -f name=flaskDcokerJenkinsApp)"] then
+                    if [ "$(docker ps -aq -f name=flaskDcokerJenkinsApp)" ]; then
                         docker stop flaskDcokerJenkinsApp
                         docker rm flaskDcokerJenkinsApp
                     fi
-                '''
+                    '''
 
             }
         }
