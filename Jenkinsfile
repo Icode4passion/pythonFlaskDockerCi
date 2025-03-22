@@ -24,9 +24,9 @@ pipeline{
         stage("Setting up Docker Compose file..."){
             steps{
                 sh 'docker system prune -f'
-                sh "docker-compose --version"
-                sh "/docker-compose build"
-                sh "docker-compose up -d"
+                sh "/usr/local/bin/docker-compose --version"
+                sh "/usr/local/bin/docker-compose build"
+                sh "/usr/local/bin/docker-compose up -d"
             }
         }
         stage("testing ..."){
